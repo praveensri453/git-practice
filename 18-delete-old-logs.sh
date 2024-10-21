@@ -5,7 +5,7 @@ G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
 
-if [ -d $SOURCE_DIR ]
+if [ -d $SOURCE_DIR ] # -d checks if the directory path is exist or not 
 then
     echo -e "$SOURCE_DIR $G Exists $N"
 else
