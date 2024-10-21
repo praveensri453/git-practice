@@ -5,6 +5,8 @@ echooooo "Hello Wolrd failure"
 echo "Hello World after failure"
 
 #op
+#Hello World success
+# line 4: echooooo: command not found
 
 
 
