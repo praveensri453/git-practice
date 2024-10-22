@@ -41,5 +41,5 @@ then
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
     find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS | zip "$ZIP_FILE" -@
 else
-    echo "no files are older than : $DAYS
+    echo "no files are older than : $DAYS"
 fi        
