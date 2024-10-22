@@ -5,7 +5,7 @@ THRESHOULD=30
 
 while IFS= read -r file
 do
-    CU_VAL=${$SOURCE|awk -F " " '{print $6}'|cut -d "%" -f6}
+    CU_VAL=$($SOURCE|awk -F " " '{print $6}'|cut -d "%" -f6)
     PATH=$SOURCE|awk -F " " '{print $NF}'
     if [ $CU_VAL -gt $THRESHOULD ]
     
