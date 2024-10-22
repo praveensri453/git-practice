@@ -20,3 +20,17 @@ then
     USAGE
     exit 1
 fi
+
+if [ ! -d $SOURCE_DIR ]
+then
+    echo "$SOURCE_DIR does not exist...Please check"
+fi
+
+if [ ! -d $DEST_DIR ]
+then
+    echo "$DEST_DIR does not exist...Please check"
+fi
+
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +$DAYS)
+
+echo "Files: $FILES"
