@@ -1,5 +1,5 @@
 #!/bin/bash
-SOURCE=${df -hT|grep xfs}
+SOURCE=$(df -hT|grep xfs)
 THRESHOULD=30
 
 
