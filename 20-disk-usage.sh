@@ -1,15 +1,15 @@
 #!/bin/bash
-SOURCE=$(df -hT|grep xfs)
-THRESHOULD=30
+
+DISK_USAGE=$(df -hT | grep xfs)
+DISK_THRESHOLD=5 #real projects, it is usually 75
 
 
-while IFS= read -r line
+while IFS= read -r line #IFS,internal field seperatpor, empty it will ignore while space.-r is for not to ingore special charecters like /
 do
-    CU_VAL=$($SOURCE|awk -F " " '{print $6}'|cut -d "%" -f6)
-    PATH=$SOURCE|awk -F " " '{print $NF}'
-    if [ $CU_VAL -gt $THRESHOULD ]
-    
-    then echo "$CU_VAL is greater than $THRESHOULD"
+    USAGE=$(echo $line | grep xfs | awk -F " " '{print $6F}' | cut -d "%" -f1)
+    PARTITION=$(echo $line | grep xfs | awk -F " " '{print $NF}')
+    if [ $USAGE -ge $DISK_THRESHOLD ]
+    then
+        echo "$PARTITION is more than $DISK_THRESHOLD, current value: $USAGE. Please check"
     fi
-
-done <<< $SOURCE    
+done <<< $DISK_USAGE
